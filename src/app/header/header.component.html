@@ -1,0 +1,20 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan justify-content-between">
+  <logo><a class="navbar-brand" href="#">Doc Saver</a></logo>
+  <links>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link waves-light" mdbRippleRadius>Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link waves-light" (click)="stateChange(true)" mdbRippleRadius>Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" (click)="stateChange(false)" mdbRippleRadius>SignUp</a>
+          </li>
+      </ul>
+      
+      <form class="form-inline  waves-light" mdbRippleRadius>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      </form>
+  </links>
+</mdb-navbar>

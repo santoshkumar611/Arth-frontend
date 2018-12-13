@@ -1,0 +1,67 @@
+<div class="row justify-content-md-center">
+  <div class="col col-lg-2">
+      
+  </div>
+  <div class="col-12 col-md-auto" *ngIf="loginToggle">
+    <form [formGroup]="loginForm" (ngSubmit) = "login(loginForm)" >
+      <p class="h5 text-center mb-4">Sign in</p>
+  
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="defaultForm-email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control" formControlName="email" mdbActive >
+          <label for="defaultForm-email">Your email</label>
+          <span *ngIf=" !loginForm.get('email').valid && loginForm.get('email').touched && loginForm.hasError('required', 'email')" style="color:red"> 
+            Email is required</span>
+          <span *ngIf=" !loginForm.get('email').valid && loginForm.get('email').touched && loginForm.hasError('pattern', 'email')" style="color:red">Valid email is required</span>
+
+        </div>
+  
+      <div class="md-form">
+          <i class="fa fa-lock prefix grey-text"></i>
+          <input type="password" required id="defaultForm-pass" class="form-control" formControlName="password" mdbActive>
+          <label for="defaultForm-pass">Your password</label>
+          <span *ngIf=" !loginForm.get('password').valid && loginForm.get('password').touched && loginForm.hasError('required', 'password')" style="color:red"> 
+            password is required</span>
+      </div>
+  
+      <div class="text-center">
+          <button type="submit" class="btn btn-default waves-light" mdbRippleRadius>Login</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-md-auto" *ngIf="!loginToggle">
+    <form [formGroup]="signupForm" (ngSubmit) = "signup(signupForm)">
+      <p class="h5 text-center mb-4">Sign up</p>
+  
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="defaultForm-email" required formControlName="email" class="form-control" mdbActive>
+          <label for="defaultForm-email"> Email</label>
+          <span *ngIf=" !signupForm.get('email').valid && signupForm.get('email').touched && signupForm.hasError('required', 'email')" style="color:red"> 
+            Email is required</span>
+          <span *ngIf=" !signupForm.get('email').valid && signupForm.get('email').touched && signupForm.hasError('pattern', 'email')" style="color:red">Valid email is required</span>
+      </div>
+  
+      <div class="md-form">
+          <i class="fa fa-lock prefix grey-text"></i>
+          <input type="password" id="defaultForm-pass" required formControlName="password" class="form-control" mdbActive>
+          <label for="defaultForm-pass">Password</label>
+          <span *ngIf=" !signupForm.get('password').valid && signupForm.get('password').touched && signupForm.hasError('required', 'password')" style="color:red"> 
+            password is required</span>
+      </div>
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input formControlName="confirmPassword" required type="password" id="defaultForm-pass" class="form-control" mdbActive>
+        <label for="defaultForm-pass">Confirmation password</label>
+        <span *ngIf=" !signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched && signupForm.hasError('required', 'confirmPassword')" style="color:red"> 
+           confirm password is required</span>
+    </div>
+      <div class="text-center">
+          <button type="submit" class="btn btn-default waves-light" mdbRippleRadius>Register</button>
+      </div>
+    </form>
+  </div>
+  <div class="col col-lg-2">
+    
+  </div>
+</div>
